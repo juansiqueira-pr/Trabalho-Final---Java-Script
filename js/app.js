@@ -2,23 +2,11 @@
  * @fileoverview Portal Acadêmico Web — app.js
  * Sistema de gerenciamento acadêmico com CRUD completo,
  * cálculo de médias, relatórios e persistência via localStorage.
- *
- * Módulos:
- *  - Navegação
- *  - Dados / JSON
- *  - CRUD (Create, Read, Update, Delete)
- *  - Notas
- *  - Ordenação
- *  - Relatórios
- *  - Utilitários
- *  - Toast
  */
 
 'use strict';
 
-/* ============================================================
-   MÓDULO: Estado Global
-============================================================ */
+/*MÓDULO: Estado Global*/
 
 /** @type {Array<Object>} Array principal de alunos */
 let alunos = [];
@@ -41,9 +29,7 @@ let sortStateNotas = { col: 'nome', dir: 'asc' };
 /** @type {string} Termo de busca atual */
 let termoBusca = '';
 
-/* ============================================================
-   MÓDULO: DADOS / JSON
-============================================================ */
+/*MÓDULO: DADOS / JSON*/
 
 /**
  * Carrega os dados iniciais do arquivo JSON externo via fetch().
@@ -55,7 +41,7 @@ const carregarDados = async () => {
   const lsData = localStorage.getItem('portalAcademico_alunos');
 
   if (lsData) {
-    // Dados já existem no localStorage — usá-los
+    //Dados já existem no localStorage — usá-los
     try {
       const parsed = JSON.parse(lsData);
       alunos = parsed.alunos || [];
@@ -69,7 +55,7 @@ const carregarDados = async () => {
     }
   }
 
-  // Sem dados no localStorage: carregar do arquivo JSON
+  //Sem dados no localStorage: carregar do arquivo JSON
   try {
     const response = await fetch('data/alunos.json');
     if (!response.ok) throw new Error(`HTTP ${response.status}`);
@@ -94,9 +80,7 @@ const salvarNoStorage = () => {
   localStorage.setItem('portalAcademico_alunos', JSON.stringify({ alunos }));
 };
 
-/* ============================================================
-   MÓDULO: UTILITÁRIOS
-============================================================ */
+/*MÓDULO: UTILITÁRIOS*/
 
 /**
  * Calcula a média de duas notas.
@@ -148,10 +132,7 @@ const formatarData = (isoDate) => {
   return `${d}/${m}/${y}`;
 };
 
-/* ============================================================
-   MÓDULO: TOAST (Notificações)
-============================================================ */
-
+/*MÓDULO: TOAST (Notificações)*/
 /**
  * Exibe uma notificação toast.
  * @param {string} mensagem
@@ -182,9 +163,7 @@ const mostrarToast = (mensagem, tipo = 'info', duracao = 3000) => {
   }, duracao);
 };
 
-/* ============================================================
-   MÓDULO: NAVEGAÇÃO
-============================================================ */
+/*MÓDULO: NAVEGAÇÃO*/
 
 /**
  * Navega para uma seção pelo seu ID.
@@ -192,17 +171,17 @@ const mostrarToast = (mensagem, tipo = 'info', duracao = 3000) => {
  * @param {string} secaoId
  */
 const navegarPara = (secaoId) => {
-  // Ocultar todas as sections
+  //Ocultar todas as sections
   document.querySelectorAll('.section').forEach(sec => {
     sec.classList.remove('active');
   });
 
-  // Remover active de todos os links
+  //Remover active de todos os links
   document.querySelectorAll('.nav-link').forEach(link => {
     link.classList.remove('active');
   });
 
-  // Ativar section alvo
+  //Ativar section alvo
   const secao = document.getElementById(secaoId);
   if (secao) {
     secao.classList.add('active');
@@ -213,11 +192,11 @@ const navegarPara = (secaoId) => {
     });
   }
 
-  // Ativar link correspondente
+  //Ativar link correspondente
   const linkAtivo = document.querySelector(`.nav-link[data-section="${secaoId}"]`);
   if (linkAtivo) linkAtivo.classList.add('active');
 
-  // Fechar sidebar mobile
+  //Fechar sidebar mobile
   document.getElementById('sidebar').classList.remove('open');
 
   // Atualizar conteúdo dinâmico por seção
@@ -238,14 +217,14 @@ const inicializarNavegacao = () => {
     });
   });
 
-  // Hamburger para mobile
+  //Hamburger para mobile
   const hamburger = document.getElementById('hamburgerBtn');
   const sidebar   = document.getElementById('sidebar');
   hamburger.addEventListener('click', () => {
     sidebar.classList.toggle('open');
   });
 
-  // Fechar sidebar ao clicar fora (mobile)
+  //Fechar sidebar ao clicar fora (mobile)
   document.addEventListener('click', (e) => {
     if (!sidebar.contains(e.target) && !hamburger.contains(e.target)) {
       sidebar.classList.remove('open');
@@ -253,9 +232,7 @@ const inicializarNavegacao = () => {
   });
 };
 
-/* ============================================================
-   MÓDULO: CRUD — Criação / Atualização
-============================================================ */
+/*MÓDULO: CRUD — Criação / Atualização*/
 
 /**
  * Valida os campos do formulário de cadastro.
@@ -393,10 +370,7 @@ const excluirAluno = (id) => {
   mostrarToast(`Aluno "${aluno.nome}" removido.`, 'warning');
 };
 
-/* ============================================================
-   MÓDULO: NOTAS
-============================================================ */
-
+/*MÓDULO: NOTAS*/
 /**
  * Abre o modal de lançamento de notas para um aluno.
  * @param {number} id - ID do aluno
@@ -478,9 +452,7 @@ const salvarNotas = () => {
   mostrarToast('Notas salvas e média calculada!', 'success');
 };
 
-/* ============================================================
-   MÓDULO: ORDENAÇÃO
-============================================================ */
+/*MÓDULO: ORDENAÇÃO*/
 
 /**
  * Ordena o array de alunos por um campo, alternando asc/desc.
@@ -553,9 +525,7 @@ const atualizarIconesSort = (thead, state) => {
   });
 };
 
-/* ============================================================
-   MÓDULO: RENDERIZAÇÃO DOM
-============================================================ */
+/*MÓDULO: RENDERIZAÇÃO DOM*/
 
 /**
  * Cria uma célula <td> via createElement + innerText.
@@ -720,9 +690,7 @@ const renderizarTabelaNotas = () => {
   });
 };
 
-/* ============================================================
-   MÓDULO: DASHBOARD
-============================================================ */
+/*MÓDULO: DASHBOARD*/
 
 /**
  * Atualiza os cards do dashboard com os dados atuais.
@@ -750,9 +718,7 @@ const atualizarDashboard = () => {
   document.getElementById('totalReprovados').innerText = reprovados;
 };
 
-/* ============================================================
-   MÓDULO: RELATÓRIOS
-============================================================ */
+/*MÓDULO: RELATÓRIOS*/
 
 /**
  * Cria um card de relatório.
@@ -892,44 +858,42 @@ const renderizarRelatorios = () => {
   });
 };
 
-/* ============================================================
-   MÓDULO: EVENTOS
-============================================================ */
+/*MÓDULO: EVENTOS*/
 
 /**
  * Inicializa todos os event listeners da aplicação.
  */
 const inicializarEventos = () => {
-  // Busca por nome
+  //Busca por nome
   document.getElementById('searchInput').addEventListener('input', (e) => {
     termoBusca = e.target.value;
     renderizarTabela();
   });
 
-  // Fechar modal ao clicar fora
+  //Fechar modal ao clicar fora
   document.getElementById('modalNotasOverlay').addEventListener('click', (e) => {
     if (e.target === document.getElementById('modalNotasOverlay')) {
       fecharModal();
     }
   });
 
-  // Preview de média no modal
+  //Preview de média no modal
   document.getElementById('modalNota1').addEventListener('input', atualizarPreviewMedia);
   document.getElementById('modalNota2').addEventListener('input', atualizarPreviewMedia);
 
-  // Tecla ESC fecha modal
+  //Tecla ESC fecha modal
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') fecharModal();
   });
 
-  // Ordenação tabela início
+  //Ordenação tabela início
   document.querySelectorAll('#alunosTable thead th.sortable').forEach(th => {
     th.addEventListener('click', () => {
       ordenarPor(th.dataset.col, 'inicio');
     });
   });
 
-  // Ordenação tabela notas
+  //Ordenação tabela notas
   document.querySelectorAll('#notasTable thead th.sortable').forEach(th => {
     th.addEventListener('click', () => {
       ordenarPor(th.dataset.col, 'notas');
@@ -937,9 +901,7 @@ const inicializarEventos = () => {
   });
 };
 
-/* ============================================================
-   MÓDULO: INICIALIZAÇÃO
-============================================================ */
+/*MÓDULO: INICIALIZAÇÃO*/
 
 /**
  * Inicializa a aplicação após carregamento dos dados.

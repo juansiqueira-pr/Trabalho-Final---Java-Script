@@ -1,27 +1,4 @@
-/* ============================================================
-   PORTAL ACADÊMICO WEB — style.css
-   Organizado por seções:
-   1. RESET & BASE
-   2. VARIÁVEIS & TOKENS
-   3. LAYOUT
-   4. HEADER
-   5. MENU / SIDEBAR
-   6. CARDS DASHBOARD
-   7. FORMULÁRIOS
-   8. TABELAS
-   9. MODAIS
-   10. RELATÓRIOS
-   11. SOBRE
-   12. BOTÕES
-   13. BADGES & SITUAÇÃO
-   14. TOAST
-   15. ANIMAÇÕES
-   16. RESPONSIVIDADE
-============================================================ */
-
-/* ============================================================
-   1. RESET & BASE
-============================================================ */
+/*1. RESET & BASE*/
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
@@ -60,9 +37,7 @@ img {
   display: block;
 }
 
-/* ============================================================
-   2. VARIÁVEIS & TOKENS
-============================================================ */
+/*2. VARIÁVEIS & TOKENS*/
 :root {
   /* Colors */
   --azul-escuro:    #1E3A8A;
@@ -108,9 +83,7 @@ img {
   --header-height: 64px;
 }
 
-/* ============================================================
-   3. LAYOUT
-============================================================ */
+/*3. LAYOUT*/
 .layout {
   display: flex;
   min-height: calc(100vh - var(--header-height));
@@ -153,9 +126,7 @@ img {
   color: var(--cinza-500);
 }
 
-/* ============================================================
-   4. HEADER
-============================================================ */
+/*4. HEADER*/
 .header {
   position: fixed;
   top: 0;
@@ -238,9 +209,7 @@ img {
   transition: transform var(--transition-normal);
 }
 
-/* ============================================================
-   5. MENU / SIDEBAR
-============================================================ */
+/*5. MENU / SIDEBAR*/
 .sidebar {
   position: fixed;
   top: var(--header-height);
@@ -322,9 +291,7 @@ img {
   border-radius: var(--radius-full);
 }
 
-/* ============================================================
-   6. CARDS DASHBOARD
-============================================================ */
+/*6. CARDS DASHBOARD*/
 .dashboard-cards {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -406,9 +373,7 @@ img {
   margin-top: 2px;
 }
 
-/* ============================================================
-   7. FORMULÁRIOS
-============================================================ */
+/*7. FORMULÁRIOS*/
 .form-card {
   background: var(--branco);
   border-radius: var(--radius-lg);
@@ -495,9 +460,7 @@ img {
   border-top: 1px solid var(--cinza-200);
 }
 
-/* ============================================================
-   8. TABELAS
-============================================================ */
+/*8. TABELAS*/
 .table-toolbar {
   display: flex;
   align-items: center;
@@ -642,9 +605,7 @@ img {
   font-size: 0.9rem;
 }
 
-/* ============================================================
-   9. MODAIS
-============================================================ */
+/*9. MODAIS*/
 .modal-overlay {
   position: fixed;
   inset: 0;
@@ -751,9 +712,7 @@ img {
   color: var(--cinza-700);
 }
 
-/* ============================================================
-   10. RELATÓRIOS
-============================================================ */
+/*10. RELATÓRIOS*/
 .report-block {
   background: var(--branco);
   border-radius: var(--radius-lg);
@@ -852,9 +811,7 @@ img {
 .top5-position.pos-3 { background: #FEF2F2; color: #7C2D12; border: 2px solid #CD7C4A; }
 .top5-position.pos-other { background: var(--cinza-100); color: var(--cinza-500); border: 2px solid var(--cinza-300); }
 
-/* ============================================================
-   11. SOBRE
-============================================================ */
+/*11. SOBRE*/
 .about-intro {
   background: linear-gradient(135deg, var(--azul-paler), #EFF6FF);
   border: 1px solid #BFDBFE;
@@ -992,9 +949,7 @@ img {
   color: var(--azul);
 }
 
-/* ============================================================
-   12. BOTÕES
-============================================================ */
+/*12. BOTÕES*/
 .btn {
   display: inline-flex;
   align-items: center;
@@ -1085,9 +1040,7 @@ img {
   gap: 6px;
 }
 
-/* ============================================================
-   13. BADGES & SITUAÇÃO ACADÊMICA
-============================================================ */
+/*13. BADGES & SITUAÇÃO ACADÊMICA*/
 .situacao-badge {
   display: inline-flex;
   align-items: center;
@@ -1119,9 +1072,7 @@ img {
   color: var(--cinza-500);
 }
 
-/* ============================================================
-   14. TOAST NOTIFICATIONS
-============================================================ */
+/*14. TOAST NOTIFICATIONS*/
 .toast-container {
   position: fixed;
   bottom: 24px;
@@ -1176,9 +1127,7 @@ img {
   font-weight: 500;
 }
 
-/* ============================================================
-   15. ANIMAÇÕES
-============================================================ */
+/*15. ANIMAÇÕES*/
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(10px); }
   to   { opacity: 1; transform: translateY(0); }
@@ -1216,9 +1165,7 @@ img {
   100% { background-position: -200% 0; }
 }
 
-/* ============================================================
-   16. RESPONSIVIDADE
-============================================================ */
+/*16. RESPONSIVIDADE*/
 
 /* Tablet */
 @media (max-width: 1024px) {
