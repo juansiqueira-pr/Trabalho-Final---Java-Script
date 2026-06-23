@@ -1,15 +1,417 @@
 <!DOCTYPE html>
-<html lang="pt">
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portal Acadêmico Web</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
 </head>
 <body>
-    <h1>Teste</h1>
-    <p>Mudança</p>
-    <p>Testar -2</p>
-    <p>porfavor</p>
-    <script src="./js/script.js"></script>
+
+  <!-- ========== HEADER ========== -->
+  <header class="header">
+    <div class="header-inner">
+      <div class="header-brand">
+        <div class="logo-icon">
+          <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="40" height="40" rx="10" fill="#2563EB"/>
+            <path d="M20 8L34 15V17L20 24L6 17V15L20 8Z" fill="white" opacity="0.9"/>
+            <path d="M10 19.5V28L20 33L30 28V19.5L20 25.5L10 19.5Z" fill="white" opacity="0.6"/>
+          </svg>
+        </div>
+        <div class="header-titles">
+          <span class="system-name">Portal Acadêmico Web</span>
+          <span class="institution-name">Faculdade de Tecnologia Exemplo</span>
+        </div>
+      </div>
+      <button class="hamburger" id="hamburgerBtn" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ========== LAYOUT WRAPPER ========== -->
+  <div class="layout">
+
+    <!-- ========== SIDEBAR NAV ========== -->
+    <nav class="sidebar" id="sidebar">
+      <ul class="nav-list">
+        <li>
+          <a href="#" class="nav-link active" data-section="inicio">
+            <span class="nav-icon">
+              <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7A1 1 0 003 11h1v6a1 1 0 001 1h4v-5h2v5h4a1 1 0 001-1v-6h1a1 1 0 00.707-1.707l-7-7z"/></svg>
+            </span>
+            Início
+          </a>
+        </li>
+        <li>
+          <a href="#" class="nav-link" data-section="cadastro">
+            <span class="nav-icon">
+              <svg viewBox="0 0 20 20" fill="currentColor"><path d="M8 9a3 3 0 100-6 3 3 0 000 6zM8 11a6 6 0 016 6H2a6 6 0 016-6zM16 7a1 1 0 10-2 0v1h-1a1 1 0 100 2h1v1a1 1 0 102 0v-1h1a1 1 0 100-2h-1V7z"/></svg>
+            </span>
+            Cadastro de Alunos
+          </a>
+        </li>
+        <li>
+          <a href="#" class="nav-link" data-section="notas">
+            <span class="nav-icon">
+              <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9 2a1 1 0 000 2h2a1 1 0 100-2H9z"/><path fill-rule="evenodd" d="M4 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v11a2 2 0 01-2 2H6a2 2 0 01-2-2V5zm3 4a1 1 0 000 2h.01a1 1 0 100-2H7zm3 0a1 1 0 000 2h3a1 1 0 100-2h-3zm-3 4a1 1 0 100 2h.01a1 1 0 100-2H7zm3 0a1 1 0 100 2h3a1 1 0 100-2h-3z" clip-rule="evenodd"/></svg>
+            </span>
+            Notas
+          </a>
+        </li>
+        <li>
+          <a href="#" class="nav-link" data-section="relatorios">
+            <span class="nav-icon">
+              <svg viewBox="0 0 20 20" fill="currentColor"><path d="M2 11a1 1 0 011-1h2a1 1 0 011 1v5a1 1 0 01-1 1H3a1 1 0 01-1-1v-5zM8 7a1 1 0 011-1h2a1 1 0 011 1v9a1 1 0 01-1 1H9a1 1 0 01-1-1V7zM14 4a1 1 0 011-1h2a1 1 0 011 1v12a1 1 0 01-1 1h-2a1 1 0 01-1-1V4z"/></svg>
+            </span>
+            Relatórios
+          </a>
+        </li>
+        <li>
+          <a href="#" class="nav-link" data-section="sobre">
+            <span class="nav-icon">
+              <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"/></svg>
+            </span>
+            Sobre
+          </a>
+        </li>
+      </ul>
+      <div class="sidebar-footer">
+        <span>Portal Acadêmico v1.0</span>
+      </div>
+    </nav>
+
+    <!-- ========== MAIN CONTENT ========== -->
+    <main class="main-content" id="mainContent">
+
+      <!-- ===== SECTION: INÍCIO ===== -->
+      <section id="inicio" class="section active fade-in">
+        <div class="section-header">
+          <h2 class="section-title">Dashboard</h2>
+          <p class="section-subtitle">Bem-vindo ao Portal Acadêmico Web</p>
+        </div>
+
+        <!-- Dashboard Cards -->
+        <div class="dashboard-cards" id="dashboardCards">
+          <div class="dash-card dash-card--total">
+            <div class="dash-card__icon">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+            </div>
+            <div class="dash-card__info">
+              <span class="dash-card__label">Total de Alunos</span>
+              <span class="dash-card__value" id="totalAlunos">0</span>
+            </div>
+          </div>
+          <div class="dash-card dash-card--aprovados">
+            <div class="dash-card__icon">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+            </div>
+            <div class="dash-card__info">
+              <span class="dash-card__label">Aprovados</span>
+              <span class="dash-card__value" id="totalAprovados">0</span>
+            </div>
+          </div>
+          <div class="dash-card dash-card--recuperacao">
+            <div class="dash-card__icon">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd"/></svg>
+            </div>
+            <div class="dash-card__info">
+              <span class="dash-card__label">Recuperação</span>
+              <span class="dash-card__value" id="totalRecuperacao">0</span>
+            </div>
+          </div>
+          <div class="dash-card dash-card--reprovados">
+            <div class="dash-card__icon">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"/></svg>
+            </div>
+            <div class="dash-card__info">
+              <span class="dash-card__label">Reprovados</span>
+              <span class="dash-card__value" id="totalReprovados">0</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Search Bar -->
+        <div class="table-toolbar">
+          <h3 class="table-section-title">Alunos Cadastrados</h3>
+          <div class="search-box">
+            <svg class="search-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd"/></svg>
+            <input type="text" id="searchInput" placeholder="Buscar por nome..." class="search-input" />
+          </div>
+        </div>
+
+        <!-- Alunos Table -->
+        <div class="table-wrapper">
+          <table class="data-table" id="alunosTable">
+            <thead>
+              <tr>
+                <th data-col="nome" class="sortable">Nome <span class="sort-icon">↕</span></th>
+                <th data-col="curso" class="sortable">Curso <span class="sort-icon">↕</span></th>
+                <th data-col="semestre" class="sortable">Semestre <span class="sort-icon">↕</span></th>
+                <th data-col="media" class="sortable">Média <span class="sort-icon">↕</span></th>
+                <th>Situação</th>
+                <th>Ações</th>
+              </tr>
+            </thead>
+            <tbody id="alunosTableBody">
+              <!-- Populated by JS -->
+            </tbody>
+          </table>
+          <div id="emptyState" class="empty-state" style="display:none;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>
+            <p>Nenhum aluno cadastrado ainda.</p>
+            <button class="btn btn--primary" onclick="navegarPara('cadastro')">Cadastrar primeiro aluno</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== SECTION: CADASTRO ===== -->
+      <section id="cadastro" class="section fade-in">
+        <div class="section-header">
+          <h2 class="section-title">Cadastro de Alunos</h2>
+          <p class="section-subtitle">Adicione ou edite informações dos alunos</p>
+        </div>
+
+        <div class="form-card">
+          <div class="form-card__header">
+            <h3 id="formTitle">Novo Aluno</h3>
+          </div>
+          <div class="form-card__body">
+            <div class="form-group">
+              <label class="form-label" for="inputNome">Nome Completo</label>
+              <input type="text" id="inputNome" class="form-control" placeholder="Digite o nome completo" />
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label" for="inputCurso">Curso</label>
+                <select id="inputCurso" class="form-control">
+                  <option value="">Selecione um curso</option>
+                  <option value="ADS">ADS – Análise e Desenvolvimento de Sistemas</option>
+                  <option value="ESOFT">ESOFT – Engenharia de Software</option>
+                  <option value="PSICO">PSICO – Psicologia</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="inputSemestre">Semestre</label>
+                <input type="number" id="inputSemestre" class="form-control" placeholder="Ex: 3" min="1" max="10" />
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="inputDataNasc">Data de Nascimento</label>
+              <input type="date" id="inputDataNasc" class="form-control" />
+            </div>
+            <div class="form-actions">
+              <button class="btn btn--secondary" id="btnCancelarEdicao" style="display:none;" onclick="cancelarEdicao()">
+                Cancelar
+              </button>
+              <button class="btn btn--primary" id="btnCadastrar" onclick="cadastrarOuSalvar()">
+                <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z" clip-rule="evenodd"/></svg>
+                Cadastrar Aluno
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== SECTION: NOTAS ===== -->
+      <section id="notas" class="section fade-in">
+        <div class="section-header">
+          <h2 class="section-title">Lançamento de Notas</h2>
+          <p class="section-subtitle">Registre as notas de cada aluno</p>
+        </div>
+
+        <div class="table-wrapper">
+          <table class="data-table" id="notasTable">
+            <thead>
+              <tr>
+                <th data-col="nome" class="sortable">Nome <span class="sort-icon">↕</span></th>
+                <th data-col="curso" class="sortable">Curso <span class="sort-icon">↕</span></th>
+                <th data-col="semestre" class="sortable">Semestre <span class="sort-icon">↕</span></th>
+                <th data-col="media" class="sortable">Média <span class="sort-icon">↕</span></th>
+                <th>Situação</th>
+                <th>Ações</th>
+              </tr>
+            </thead>
+            <tbody id="notasTableBody">
+              <!-- Populated by JS -->
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- ===== SECTION: RELATÓRIOS ===== -->
+      <section id="relatorios" class="section fade-in">
+        <div class="section-header">
+          <h2 class="section-title">Relatórios</h2>
+          <p class="section-subtitle">Estatísticas e análises do sistema acadêmico</p>
+        </div>
+
+        <!-- RELATÓRIO GERAL -->
+        <div class="report-block">
+          <h3 class="report-block__title">
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M2 11a1 1 0 011-1h2a1 1 0 011 1v5a1 1 0 01-1 1H3a1 1 0 01-1-1v-5z"/><path d="M8 7a1 1 0 011-1h2a1 1 0 011 1v9a1 1 0 01-1 1H9a1 1 0 01-1-1V7z"/><path d="M14 4a1 1 0 011-1h2a1 1 0 011 1v12a1 1 0 01-1 1h-2a1 1 0 01-1-1V4z"/></svg>
+            Relatório Geral
+          </h3>
+          <div class="report-grid" id="relatorioGeral"></div>
+        </div>
+
+        <!-- RELATÓRIO CURSOS -->
+        <div class="report-block">
+          <h3 class="report-block__title">
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10.394 2.08a1 1 0 00-.788 0l-7 3a1 1 0 000 1.84L5.25 8.051a.999.999 0 01.356-.257l4-1.714a1 1 0 11.788 1.838L7.667 9.088l1.94.831a1 1 0 00.787 0l7-3a1 1 0 000-1.838l-7-3z"/><path d="M3.31 9.397L5 10.12v4.102a8.969 8.969 0 00-1.05-.174 1 1 0 01-.89-.89 11.115 11.115 0 01.25-3.762zM9.3 16.573A9.026 9.026 0 007 14.935v-3.957l1.818.78a3 3 0 002.364 0l5.508-2.361a11.026 11.026 0 01.25 3.762 1 1 0 01-.89.89 8.968 8.968 0 00-5.35 2.524 1 1 0 01-1.4 0zM6 18a1 1 0 001-1v-2.065a8.935 8.935 0 00-2-.712V17a1 1 0 001 1z"/></svg>
+            Relatório por Curso
+          </h3>
+          <div class="report-grid" id="relatorioCursos"></div>
+        </div>
+
+        <!-- RELATÓRIO DESEMPENHO -->
+        <div class="report-block">
+          <h3 class="report-block__title">
+            <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M12 7a1 1 0 110-2h5a1 1 0 011 1v5a1 1 0 11-2 0V8.414l-4.293 4.293a1 1 0 01-1.414 0L8 10.414l-4.293 4.293a1 1 0 01-1.414-1.414l5-5a1 1 0 011.414 0L11 10.586 14.586 7H12z" clip-rule="evenodd"/></svg>
+            Desempenho Acadêmico
+          </h3>
+          <div class="report-grid" id="relatorioDesempenho"></div>
+        </div>
+
+        <!-- TOP 5 -->
+        <div class="report-block">
+          <h3 class="report-block__title">
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            Top 5 – Melhores Médias
+          </h3>
+          <div class="table-wrapper">
+            <table class="data-table" id="top5Table">
+              <thead>
+                <tr>
+                  <th>Posição</th>
+                  <th>Aluno</th>
+                  <th>Curso</th>
+                  <th>Média</th>
+                  <th>Situação</th>
+                </tr>
+              </thead>
+              <tbody id="top5TableBody"></tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== SECTION: SOBRE ===== -->
+      <section id="sobre" class="section fade-in">
+        <div class="section-header">
+          <h2 class="section-title">Sobre o Projeto</h2>
+          <p class="section-subtitle">Portal Acadêmico Web — Projeto Final de Desenvolvimento Web</p>
+        </div>
+
+        <div class="about-intro">
+          <div class="about-intro__icon">
+            <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect width="40" height="40" rx="10" fill="#2563EB"/>
+              <path d="M20 8L34 15V17L20 24L6 17V15L20 8Z" fill="white" opacity="0.9"/>
+              <path d="M10 19.5V28L20 33L30 28V19.5L20 25.5L10 19.5Z" fill="white" opacity="0.6"/>
+            </svg>
+          </div>
+          <div>
+            <h3>Portal Acadêmico Web</h3>
+            <p>Este sistema foi desenvolvido como projeto final da disciplina de Desenvolvimento Web, utilizando HTML5, CSS3, JavaScript Vanilla, DOM e JSON.</p>
+          </div>
+        </div>
+
+        <h3 class="team-title">Equipe de Desenvolvimento</h3>
+        <div class="team-grid" id="teamGrid">
+          <!-- Populated by JS or static -->
+          <div class="team-card">
+            <div class="team-card__avatar">
+              <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="40" cy="40" r="40" fill="#E0EAFF"/>
+                <circle cx="40" cy="30" r="14" fill="#93C5FD"/>
+                <path d="M10 72c0-16.569 13.431-30 30-30s30 13.431 30 30" fill="#BFDBFE"/>
+              </svg>
+            </div>
+            <div class="team-card__info">
+              <h4 class="team-card__name">Yuri Menegat</h4>
+              <span class="team-card__role">Desenvolvedor Front-End</span>
+              <p class="team-card__bio">Estudante de Engenharia de Software. Possui interesse em desenvolvimento web, design de interfaces e experiência do usuário.</p>
+            </div>
+          </div>
+          <div class="team-card">
+            <div class="team-card__avatar">
+              <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="40" cy="40" r="40" fill="#EDE9FE"/>
+                <circle cx="40" cy="30" r="14" fill="#C4B5FD"/>
+                <path d="M10 72c0-16.569 13.431-30 30-30s30 13.431 30 30" fill="#DDD6FE"/>
+              </svg>
+            </div>
+            <div class="team-card__info">
+              <h4 class="team-card__name">Juan Siqueira</h4>
+              <span class="team-card__role">Desenvolvedor Full Stack</span>
+              <p class="team-card__bio">Estudante de Engenharia de Software com interesse em desenvolvimento de aplicações web, banco de dados e integração entre front-end e back-end.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="about-tech">
+          <h3 class="team-title">Tecnologias Utilizadas</h3>
+          <div class="tech-pills">
+            <span class="tech-pill">HTML5</span>
+            <span class="tech-pill">CSS3</span>
+            <span class="tech-pill">JavaScript ES6+</span>
+            <span class="tech-pill">DOM API</span>
+            <span class="tech-pill">JSON</span>
+            <span class="tech-pill">LocalStorage</span>
+            <span class="tech-pill">CSS Grid</span>
+            <span class="tech-pill">Flexbox</span>
+          </div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- ========== MODAL: NOTAS ========== -->
+  <div class="modal-overlay" id="modalNotasOverlay">
+    <div class="modal" id="modalNotas">
+      <div class="modal__header">
+        <h3 class="modal__title">Lançamento de Notas</h3>
+        <button class="modal__close" id="btnFecharModal" onclick="fecharModal()">
+          <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
+        </button>
+      </div>
+      <div class="modal__body">
+        <div class="form-group">
+          <label class="form-label">Aluno</label>
+          <input type="text" id="modalAlunoNome" class="form-control" readonly />
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="modalNota1">Nota 1</label>
+          <input type="number" id="modalNota1" class="form-control" placeholder="0.0" min="0" max="10" step="0.1" />
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="modalNota2">Nota 2</label>
+          <input type="number" id="modalNota2" class="form-control" placeholder="0.0" min="0" max="10" step="0.1" />
+        </div>
+        <div class="modal-preview" id="modalPreview" style="display:none;">
+          <span>Média calculada: </span>
+          <strong id="mediaPreview">—</strong>
+          <span class="situacao-badge" id="situacaoPreview"></span>
+        </div>
+      </div>
+      <div class="modal__footer">
+        <button class="btn btn--secondary" onclick="fecharModal()">Cancelar</button>
+        <button class="btn btn--primary" onclick="salvarNotas()">
+          <svg viewBox="0 0 20 20" fill="currentColor"><path d="M7.707 10.293a1 1 0 10-1.414 1.414l3 3a1 1 0 001.414 0l3-3a1 1 0 00-1.414-1.414L11 11.586V6h5a2 2 0 012 2v7a2 2 0 01-2 2H4a2 2 0 01-2-2V8a2 2 0 012-2h5v5.586l-1.293-1.293z"/></svg>
+          Salvar Notas
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== TOAST ========== -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <script src="js/app.js"></script>
 </body>
 </html>
